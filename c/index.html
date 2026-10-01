@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beat Your Time challenge</title>
+<meta name="description" content="A friend challenges you to beat their time in Beat Your Time.">
+<style>
+  :root { --deep: #0b1630; --panel: #16254a; --cream: #fff4e0; --gold: #ffc54d; --jade: #5fe3c6; }
+  * { box-sizing: border-box; }
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 16px;
+         background: radial-gradient(circle at 50% 30%, #1d3566, var(--deep) 70%); color: var(--cream);
+         font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: center; }
+  main { width: 100%; max-width: 420px; background: var(--panel); border-radius: 24px; padding: 28px 20px;
+         border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+  h1 { margin: 0 0 6px; font-size: 26px; }
+  .where { opacity: 0.7; margin: 0 0 18px; }
+  .label { opacity: 0.8; font-weight: 600; margin: 0; }
+  .time { color: var(--gold); font-size: 56px; font-weight: 800; margin: 4px 0 6px; }
+  .time small { font-size: 20px; color: var(--cream); opacity: 0.75; }
+  .mine { margin: 0 0 20px; color: var(--jade); }
+  a.button { display: block; margin: 10px 0; padding: 16px; border-radius: 999px; font-size: 19px; font-weight: 700;
+             text-decoration: none; background: linear-gradient(#ffd97a, #f0a12a); color: #3a2605; }
+  a.button.second { background: rgba(255,255,255,0.1); color: var(--cream); border: 1px solid rgba(255,255,255,0.2); }
+  .note { font-size: 14px; opacity: 0.6; margin-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1 id="title">A friend challenges you!</h1>
+  <p class="where" id="where">Beat Your Time</p>
+  <p class="label" id="label">Your friend's time</p>
+  <p class="time" id="time"></p>
+  <p class="mine" id="mine">Same pond for you. Can you beat it?</p>
+  <a class="button" id="open" href="#">Play in Beat Your Time</a>
+  <a class="button second" id="store" href="https://play.google.com/store/apps/details?id=com.skbrightstudios.beatyourtime">Get the game</a>
+  <p class="note" id="note">No game yet? Get it, then tap the link in your chat again.</p>
+</main>
+<script>
+  // The link is .../c/?c=LEVEL.SEED.THEIRS.YOURS.CHECK (base 36); the game checks it again.
+  var games = ["Numbers", "Backwards", "Odd Numbers", "Even Numbers", "Letters", "Count By", "Find the Birds"];
+  var store = "https://play.google.com/store/apps/details?id=com.skbrightstudios.beatyourtime";
+  var code = (new URLSearchParams(location.search).get("c") || "").toLowerCase();
+  var parts = /^[0-9a-z]+(\.[0-9a-z]+){4}$/.test(code) ? code.split(".") : null;
+  var open = document.getElementById("open");
+
+  if (!parts) {
+    document.getElementById("title").textContent = "Beat Your Time";
+    document.getElementById("where").textContent = "This challenge link looks broken.";
+    ["label", "time", "mine", "open"].forEach(function (id) { document.getElementById(id).style.display = "none"; });
+  } else {
+    var level = parseInt(parts[0], 36), theirs = parseInt(parts[2], 36), yours = parseInt(parts[3], 36);
+    var sec = function (tenths) { return (tenths / 10).toFixed(1); };
+    document.getElementById("where").textContent = (games[Math.floor(level / 20)] || "Beat Your Time") + ", level " + (level % 20 + 1);
+    document.getElementById("time").innerHTML = sec(theirs) + " <small>sec</small>";
+    if (yours > 0) {
+      document.getElementById("title").textContent = yours < theirs ? "You win!" : yours > theirs ? "Your friend wins" : "A tie!";
+      document.getElementById("mine").textContent = "Your time: " + sec(yours) + " sec";
+    }
+    // Android opens the game (or its Play Store page if it is not installed).
+    var app = "intent://c?c=" + code + "#Intent;scheme=beatyourtime;package=com.skbrightstudios.beatyourtime;S.browser_fallback_url=" +
+              encodeURIComponent(store) + ";end";
+    if (/android/i.test(navigator.userAgent)) {
+      open.href = app;
+      location.href = app;
+    } else {
+      open.style.display = "none";
+      document.getElementById("note").textContent = "Beat Your Time is on Android phones. Open this link on your phone to play.";
+    }
+  }
+</script>
+</body>
+</html>
