@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SkGameDev — Mobile games by K. Sai Krishna Reddy</title>
+<meta name="description" content="SkGameDev is a one-person studio building casual and educational mobile games with Unity. Six games live on Google Play.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://skgamedev.github.io/">
+<meta property="og:site_name" content="SkGameDev">
+<meta property="og:title" content="SkGameDev — Mobile games by K. Sai Krishna Reddy">
+<meta property="og:description" content="A one-person studio building casual and educational mobile games with Unity. Six games live on Google Play.">
+<meta property="og:image" content="https://play-lh.googleusercontent.com/XtaqcggtbZWJryEOqEiVB5KukKA7X5tOmWX9hN0pAxPXXSrEMbEMMOsHDe35fRsHDt-drAmzyJssR3KkzqPR=w512-h512-rw">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+  :root{
+    --bg:#f6f7f9; --panel:#ffffff; --ink:#15181d; --muted:#5d6672;
+    --line:#e3e7ec; --accent:#2f6df6; --accent-ink:#ffffff; --shadow:0 1px 2px rgba(16,24,40,.06),0 8px 24px rgba(16,24,40,.06);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0f1216; --panel:#171b21; --ink:#eef1f5; --muted:#9aa4b2;
+      --line:#262c35; --accent:#5b8cff; --accent-ink:#0b1020; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#0f1216; --panel:#171b21; --ink:#eef1f5; --muted:#9aa4b2;
+    --line:#262c35; --accent:#5b8cff; --accent-ink:#0b1020; --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+  }
+
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 16px}
+
+  header{padding:56px 0 8px}
+  .eyebrow{
+    display:inline-block; font-size:12px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin-bottom:14px;
+  }
+  h1{margin:0 0 10px; font-size:clamp(28px,5vw,42px); line-height:1.15; letter-spacing:-.02em}
+  .lede{margin:0; color:var(--muted); font-size:clamp(16px,2.2vw,18px); max-width:62ch}
+
+  .stats{display:flex; flex-wrap:wrap; gap:10px; margin:26px 0 0; padding:0; list-style:none}
+  .stats li{
+    background:var(--panel); border:1px solid var(--line); border-radius:999px;
+    padding:7px 14px; font-size:14px; color:var(--muted); box-shadow:var(--shadow);
+  }
+  .stats b{color:var(--ink); font-weight:650}
+
+  h2{
+    margin:56px 0 4px; font-size:13px; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); font-weight:700;
+  }
+  .sub{margin:0 0 20px; color:var(--muted); font-size:15px}
+
+  .grid{display:grid; gap:14px; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); padding:0; margin:0; list-style:none}
+  .card{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:16px; box-shadow:var(--shadow); text-decoration:none; color:inherit;
+    transition:transform .15s ease, border-color .15s ease;
+  }
+  .card:hover,.card:focus-visible{transform:translateY(-2px); border-color:var(--accent); outline:none}
+  .card img{width:56px; height:56px; border-radius:13px; flex:0 0 auto; background:var(--line)}
+  .card h3{margin:0 0 4px; font-size:16px; line-height:1.3; letter-spacing:-.01em}
+  .card p{margin:0; color:var(--muted); font-size:14px; line-height:1.5}
+  .card .go{margin-top:8px; display:inline-block; font-size:13px; font-weight:600; color:var(--accent)}
+
+  .pill-list{display:flex; flex-wrap:wrap; gap:8px; padding:0; margin:0; list-style:none}
+  .pill-list li{
+    border:1px dashed var(--line); border-radius:10px; padding:8px 12px;
+    font-size:14px; color:var(--muted); background:var(--panel);
+  }
+
+  .about p{color:var(--muted); max-width:68ch}
+  .about strong{color:var(--ink); font-weight:650}
+
+  footer{margin:64px 0 48px; padding-top:24px; border-top:1px solid var(--line); color:var(--muted); font-size:14px}
+  .links{display:flex; flex-wrap:wrap; gap:10px; margin:0 0 16px; padding:0; list-style:none}
+  .links a{
+    display:inline-block; text-decoration:none; color:var(--ink);
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:9px 14px; font-size:14px; font-weight:550;
+  }
+  .links a:hover,.links a:focus-visible{border-color:var(--accent); color:var(--accent); outline:none}
+  footer p{margin:6px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <span class="eyebrow">SkGameDev</span>
+    <h1>Mobile games, built and published by one person.</h1>
+    <p class="lede">
+      I'm K. Sai Krishna Reddy. I design, code, draw, test and release casual and
+      educational games for Android — every part of them, on my own.
+    </p>
+    <ul class="stats">
+      <li><b>6</b> games live on Google Play</li>
+      <li><b>15</b> in closed testing</li>
+      <li><b>30+</b> titles built in Unity</li>
+    </ul>
+  </header>
+
+  <h2>Live on Google Play</h2>
+  <p class="sub">Free to play. Tap any game to open its store page.</p>
+
+  <ul class="grid">
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.skbrightstudios.worddiscoverer">
+      <img src="https://play-lh.googleusercontent.com/fP9tceUQbL69sdjUQRtiH-kexRRfVisrFNInXqt3hKsgh825hT1LRxx_dCUFR1ZZFdaDxpXTHicDwzvED0AFfA=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h3>Word Discoverer: Word Search</h3>
+        <p>A calm word search with themed level packs, offline play and no timer unless you want one.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.skgamedev.digfortreasure">
+      <img src="https://play-lh.googleusercontent.com/XtaqcggtbZWJryEOqEiVB5KukKA7X5tOmWX9hN0pAxPXXSrEMbEMMOsHDe35fRsHDt-drAmzyJssR3KkzqPR=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h3>Dig for Treasure: Mining Game</h3>
+        <p>Dig deeper, sell what you find and upgrade your gear across a run of varied mines.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.skgamedev.dronedeliverycity">
+      <img src="https://play-lh.googleusercontent.com/DauqNUhnpZsP9CPZKduB339FnJNZdpyHzfi7FCNAxqgurx4HdHhY8-Rnnj0TYvx71BOAIzfU6qFN2LTabHF_tAg=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+        <div>
+        <h3>Drone Delivery City Game</h3>
+        <p>Fly a delivery drone across a busy city and land each parcel before the clock runs out.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.sk.littlegeniusworld">
+      <img src="https://play-lh.googleusercontent.com/P4R7j2DhvXKxsQYGET5zteEAEi4qBbYEDw59zkAuNmtnNW5LEQpxZQcfFrsKoldKzBU_BvZKuwCFuw2qt4TCuQ=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h3>Toddler Puzzle Games for Kids</h3>
+        <p>Gentle jigsaw puzzles for ages 2–5, with big friendly pieces and plenty of picture sets.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.skgamedev.tappytints">
+      <img src="https://play-lh.googleusercontent.com/_dp2fcM2UnWiPVF4VCNxkRaR55fPtZCMWamAfAQXyllEfkXTPyJAzV53SpfanBLknIJygBwVI0EHZ6hLC1vIPQ=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h3>Tappy Tints: Coloring for Kids</h3>
+        <p>A tap-to-colour book built on hand-drawn line art — no mess, no wrong answers.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+    <li><a class="card" href="https://play.google.com/store/apps/details?id=com.skgamedev.miniminds">
+      <img src="https://play-lh.googleusercontent.com/rglc_4ap-SyVFwvyOzx3FsrBLh5X-FX9Cbl2KLSFynNxMc-xyGvyEznmRcm__6752Lf2J0PeMfRaQ4z92t8djA=w128-h128-rw" alt="" width="56" height="56" loading="lazy">
+      <div>
+        <h3>Bright Beginners: Kids Games</h3>
+        <p>Early-learning mini-games — matching, shapes, colours and sounds for small children.</p>
+        <span class="go">Open on Google Play →</span>
+      </div>
+    </a></li>
+
+  </ul>
+
+  <h2>In testing</h2>
+  <p class="sub">Finished games currently with closed testers.</p>
+  <ul class="pill-list">
+    <li>One Line Kolam: Draw Puzzle</li>
+    <li>Arrow by Arrow: Brain Puzzle</li>
+    <li>Deep Swim: Fish Run Game</li>
+    <li>Ball Track Adventure 3D</li>
+    <li>One Clean Shot: Sniper Game</li>
+    <li>Big Crowd: Colour Fight</li>
+    <li>Fireworks Puzzle: Logic Game</li>
+    <li>Fish Escape: Tap Puzzle Game</li>
+    <li>Candy Bottles: Pour Puzzle</li>
+    <li>Busy Train Tracks</li>
+    <li>Burger House Chef</li>
+    <li>Beat Your Time</li>
+    <li>Ball Rain: Brick Breaker</li>
+    <li>Little Letters: ABC Tracing</li>
+    <li>Brainy Kids: Learning Games</li>
+  </ul>
+
+  <h2>How I work</h2>
+  <div class="about">
+    <p>
+      Every game here followed the same path, and I owned all of it: concept, prototype,
+      core loop, levels, art and audio, a performance pass for low-end Android phones,
+      ad integration, the store listing, a closed test, then release and updates.
+    </p>
+    <p>
+      I build with <strong>Unity</strong> and <strong>C#</strong>, ship as Android App
+      Bundles, and monetise with <strong>Google AdMob</strong> — including consent flows
+      and Families-policy-compliant ad setups for the children's titles. I automate the
+      repetitive parts, from build scripts to self-tests that play through every level,
+      so the time goes into the games instead of the process.
+    </p>
+  </div>
+
+  <footer>
+    <ul class="links">
+      <li><a href="https://github.com/SkgameDev">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/saikrishnareddy-gamedev/">LinkedIn</a></li>
+      <li><a href="mailto:skgamedev025@gmail.com">skgamedev025@gmail.com</a></li>
+    </ul>
+    <p>Open to freelance Unity work and collaboration.</p>
+    <p>Each game's privacy policy is linked from its Google Play listing.</p>
+    <p>© <span id="y">2026</span> SkGameDev · Kakinada, Andhra Pradesh, India</p>
+  </footer>
+
+</div>
+<script>document.getElementById('y').textContent=new Date().getFullYear();</script>
+</body>
+</html>
